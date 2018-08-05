@@ -9,7 +9,7 @@ import App from './App'
 import router from './router'
 {{/router}}
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 (new (@Component({
@@ -28,7 +28,7 @@ Vue.config.productionTip = false
     {{/if_eq}}
     {{#if_eq build "standalone"}}
     {{#jsx}}
-    render: (h) {
+    render (h) {
       return <App/>
     }{{/jsx}}
     {{/if_eq}}
