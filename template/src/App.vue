@@ -20,7 +20,7 @@ import HelloWorld from './components/HelloWorld'
   {{#unless router}}
   components: {
     HelloWorld
-  }{{/router}}
+  }{{/unless}}
 })
 export default class App extends Vue {
 }

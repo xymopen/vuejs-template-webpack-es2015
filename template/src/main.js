@@ -19,7 +19,7 @@ Vue.config.productionTip = false
   {{/router}}
   {{#if_eq build "standalone"}}
   components: { App }{{#unless jsx}},
-  template: '<App/>'{{/jsx}}
+  template: '<App/>'{{/unless}}
   {{/if_eq}}
 })
   class extends Vue {
