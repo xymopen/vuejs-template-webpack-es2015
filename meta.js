@@ -31,7 +31,7 @@ module.exports = {
       return templateVersion
     },
   },
-  
+
   prompts: {
     name: {
       when: 'isNotTest',
@@ -68,6 +68,12 @@ module.exports = {
           short: 'runtime',
         },
       ],
+    },
+    jsx: {
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'Prefer JSX?',
+      default: false,
     },
     router: {
       when: 'isNotTest',
