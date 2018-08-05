@@ -12,13 +12,27 @@ import router from './router'
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
+{{#router}}
+new Vue({
+  el: '#app',
+  router,
+  {{#if_eq build "runtime"}}
+  render: h => h(App)
+  {{/if_eq}}
+  {{#if_eq build "standalone"}}
+  {{#jsx}}
+  render (h) {
+    return <App/>
+  }{{else}}
+  components: { App },
+  template: '<App/>'
+  {{/jsx}}
+  {{/if_eq}}
+}){{else}}
 (new (@Component({
   el: '#app',
-  {{#router}}
-  router,
-  {{/router}}
-  {{#if_eq build "standalone"}}
-  components: { App }{{#unless jsx}},
+  {{#if_eq build "standalone"}}{{#unless jsx}}
+  components: { App },
   template: '<App/>'{{/unless}}
   {{/if_eq}}
 })
@@ -33,3 +47,4 @@ Vue.config.productionTip = false;
     }{{/jsx}}
     {{/if_eq}}
   }))()
+{{/router}}

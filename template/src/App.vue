@@ -10,18 +10,19 @@
 </template>
 
 <script>
-{{#unless router}}
 import Vue from 'vue'
-import Component from 'vue-class-component'
-import HelloWorld from './components/HelloWorld'
+import Component from 'vue-class-component'{{#unless router}}
+import HelloWorld from './components/HelloWorld'{{/unless}}
 
-{{/unless}}
+{{#router}}
+@Component
+{{else}}
 @Component({
-  {{#unless router}}
   components: {
     HelloWorld
-  }{{/unless}}
+  }
 })
+{{/router}}
 export default class App extends Vue {
 }
 </script>
