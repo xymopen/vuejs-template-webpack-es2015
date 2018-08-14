@@ -1,3 +1,4 @@
+{{#unless jsx}}
 <template>
   <div id="app">
     <img src="./assets/logo.png">
@@ -9,10 +10,12 @@
   </div>
 </template>
 
+{{/unless}}
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'{{#unless router}}
-import HelloWorld from './components/HelloWorld'{{/unless}}
+import HelloWorld from './components/HelloWorld'{{/unless}}{{#jsx}}
+import logo from './assets/logo.png'{{/jsx}}
 
 {{#router}}
 @Component
@@ -24,6 +27,18 @@ import HelloWorld from './components/HelloWorld'{{/unless}}
 })
 {{/router}}
 export default class App extends Vue {
+  {{#jsx}}
+  render (h) {
+    return (<div id="app">
+      <img src={logo}/>
+      {{#router}}
+      <router-view/>
+      {{else}}
+      <HelloWorld/>
+      {{/router}}
+    </div>)
+  }
+  {{/jsx}}
 }
 </script>
 
