@@ -1,3 +1,6 @@
+**Deprecated. Use `@vue/cli` instead.**
+
+
 # vue-webpack-es2015-boilerplate
 
 > A full-featured Webpack setup with `vue-class-component`, hot-reload, lint-on-save, unit testing & css extraction.
